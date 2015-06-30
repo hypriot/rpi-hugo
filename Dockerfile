@@ -24,6 +24,7 @@ mv /hugo_${HUGO_VERSION}_linux_arm/hugo_${HUGO_VERSION}_linux_arm \
 WORKDIR /www/
 
 ENTRYPOINT ["hugo"]
+EXPOSE 1313
 
 #ENTRYPOINT ["/bin/bash","-s","-c"]
 #CMD ["hugo"]
