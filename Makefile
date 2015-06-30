@@ -4,9 +4,7 @@ targz_file := $(shell cat FILEPATH)
 timestamp := $(shell date +"%Y%m%d%H%M")
 VERSION :=$(shell cat VERSION)        	
 
-default: create push
-
-docker: dockerbuild push
+default: dockerbuild push
 
 loadS3_and_extract:
 	aws s3 cp s3://$(AWS_BUCKET)/$(targz_file) ./binary.tar.gz
