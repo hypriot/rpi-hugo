@@ -2,6 +2,8 @@
 
 [![dockeri.co](http://dockeri.co/image/hypriot/rpi-hugo)](https://registry.hub.docker.com/u/hypriot/rpi-hugo/)
 
+[![Build Status](http://armbuilder.hypriot.com/api/badge/github.com/hypriot/rpi-hugo/status.svg?branch=master)](http://armbuilder.hypriot.com/github.com/hypriot/rpi-hugo)
+
 Raspberry Pi compatible Docker Image with hugo - a static webpage builder
 
 ## Details
