@@ -4,17 +4,40 @@
 
 [![Build Status](http://armbuilder.hypriot.com/api/badge/github.com/hypriot/rpi-hugo/status.svg?branch=master)](http://armbuilder.hypriot.com/github.com/hypriot/rpi-hugo)
 
-Raspberry Pi compatible Docker Image with hugo - a static webpage builder
+Raspberry Pi compatible Docker Image with [Hugo](http://gohugo.io) - a static webpage builder
 
 ## Details
+- [Blog Post](http://blog.hypriot.com/post/static-website-generation-on-steriods-with-docker/)
 - [Source Project Page](https://github.com/hypriot)
 - [Source Repository](https://github.com/hypriot/rpi-hugo)
 
-## Start a gogs git server
+## Setting up Hugo
+
 ```bash
-docker run -d --name my-go-git-server --publish 8022:22 --publish 3000:3000 --volume `pwd`/gogs-data/:/data hypriot/rpi-gogs-raspbian
+mkdir myblog && cd myblog
+docker run --rm -v $(pwd):/www hypriot/rpi-hugo new site .
+git clone --recursive --depth 1 https://github.com/spf13/hugoThemes themes
 ```
-Now you can access the new gogs installation by opening `http://< IP of your Raspberry Pi>:3000` in your browser
+
+## Create new article
+
+```bash
+docker run --rm -v $(pwd):/www hypriot/rpi-hugo new post/viral-hit.md
+vi content/post/viral-hit.md
+```
+
+## Live preview
+
+```bash
+docker run -d -p 1313:1313 -v $(pwd):/www hypriot/rpi-hugo server --bind=0.0.0.0 -w -D --theme=hyde
+open http://localhost:1313
+```
+
+## Build final HTML pages
+
+```bash
+docker run --rm -v $(pwd):/www hypriot/rpi-hugo
+```
 
 ## How to create this image
 
