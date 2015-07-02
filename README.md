@@ -10,6 +10,7 @@ Raspberry Pi compatible Docker Image with [Hugo](http://gohugo.io) - a static we
 - [Blog Post](http://blog.hypriot.com/post/static-website-generation-on-steriods-with-docker/)
 - [Source Project Page](https://github.com/hypriot)
 - [Source Repository](https://github.com/hypriot/rpi-hugo)
+- [Dockerfile](https://github.com/hypriot/rpi-hugo/blob/master/Dockerfile)
 
 ## Setting up Hugo
 
