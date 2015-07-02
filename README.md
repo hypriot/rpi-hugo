@@ -30,8 +30,12 @@ vi content/post/viral-hit.md
 ## Live preview
 
 ```bash
-docker run -d -p 1313:1313 -v $(pwd):/www hypriot/rpi-hugo server --bind=0.0.0.0 -w -D --theme=hyde
-open http://localhost:1313
+docker run -d -p 1313:1313 -v $(pwd):/www hypriot/rpi-hugo server -b http://<ip-of-your-rpi>/ --bind=0.0.0.0 -w -D --theme=hyde
+```
+and on your notebook
+
+```bash
+open http://<ip-of-your-rpi>:1313
 ```
 
 ## Build final HTML pages
