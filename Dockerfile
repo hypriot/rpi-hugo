@@ -1,4 +1,4 @@
-FROM hypriot/rpi-alpine
+FROM hypriot/rpi-alpine-scratch
 
 MAINTAINER Andreas Eiermann <andreas@hypriot.com>
 LABEL version="alpine linux version: 3.2\r\nhugo version: 0.14"
