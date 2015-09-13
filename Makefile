@@ -2,8 +2,7 @@ IMAGENAME := $(shell basename `git rev-parse --show-toplevel`)
 SHA := $(shell git rev-parse --short HEAD)
 targz_file := $(shell cat FILEPATH)
 timestamp := $(shell date +"%Y%m%d%H%M")
-VERSION :=$(shell cat VERSION)
-VERSION :=$(shell echo $(VERSION) | sed -e 's/^[[:space:]]*//' -e 's/[[:space:]]$//')        	
+VERSION :=$(shell cat VERSION | sed -e 's/^[[:space:]]*//' -e 's/[[:space:]]$//')        	
 
 default: download dockerbuild push
 
