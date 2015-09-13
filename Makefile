@@ -4,10 +4,16 @@ targz_file := $(shell cat FILEPATH)
 timestamp := $(shell date +"%Y%m%d%H%M")
 VERSION :=$(shell cat VERSION)        	
 
-default: dockerbuild push
+default: download dockerbuild push
 
 loadS3_and_extract:
 	aws s3 cp s3://$(AWS_BUCKET)/$(targz_file) ./binary.tar.gz
+	mkdir content/
+	tar xzf binary.tar.gz -C content/
+	ls -la content/
+
+download:
+	curl https://github.com/spf13/hugo/releases/download/v$(VERSION)/hugo_$(VERSION)_linux_arm.tar.gz ./binary.tar.gz
 	mkdir content/
 	tar xzf binary.tar.gz -C content/
 	ls -la content/
