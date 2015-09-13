@@ -3,7 +3,7 @@ SHA := $(shell git rev-parse --short HEAD)
 targz_file := $(shell cat FILEPATH)
 timestamp := $(shell date +"%Y%m%d%H%M")
 VERSION :=$(shell cat VERSION)
-VERSION :=$(shell echo $(VERSION) | sed -e 's/^[[:space:]]*//' -e 's/*[[:space:]]$//')        	
+VERSION :=$(shell echo $(VERSION) | sed -e 's/^[[:space:]]*//' -e '/*[[:space:]]$//')        	
 
 default: download dockerbuild push
 
