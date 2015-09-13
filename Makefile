@@ -11,6 +11,8 @@ loadS3_and_extract:
 	aws s3 cp s3://$(AWS_BUCKET)/$(targz_file) >./binary.tar.gz
 	mkdir contents/
 	tar xzf binary.tar.gz -C content/
+	cd content && \
+	mv hugo*/hugo* ./hugo
 	ls -la content/
 
 download:
