@@ -14,7 +14,7 @@ loadS3_and_extract:
 	ls -la content/
 
 download:
-	curl https://github.com/spf13/hugo/releases/download/v$(VERSION)/hugo_$(VERSION)_linux_arm.tar.gz > ./binary.tar.gz
+	curl -L https://github.com/spf13/hugo/releases/download/v$(VERSION)/hugo_$(VERSION)_linux_arm.tar.gz > ./binary.tar.gz
 	mkdir content/
 	tar xzf binary.tar.gz -C content/
 	ls -la content/
