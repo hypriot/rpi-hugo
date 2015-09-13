@@ -3,13 +3,13 @@ SHA := $(shell git rev-parse --short HEAD)
 targz_file := $(shell cat FILEPATH)
 timestamp := $(shell date +"%Y%m%d%H%M")
 VERSION :=$(shell cat VERSION)
-VERSION :=$(shell echo $(VERSION) | sed -e 's/^[[:space:]]*//' -e '/*[[:space:]]$//')        	
+VERSION :=$(shell echo $(VERSION) | sed -e 's/^[[:space:]]*//' -e 's/[[:space:]]$//')        	
 
 default: download dockerbuild push
 
 loadS3_and_extract:
 	aws s3 cp s3://$(AWS_BUCKET)/$(targz_file) >./binary.tar.gz
-	mkdir content/
+	mkdir contents/
 	tar xzf binary.tar.gz -C content/
 	ls -la content/
 
