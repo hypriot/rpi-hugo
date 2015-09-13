@@ -11,14 +11,14 @@ loadS3_and_extract:
 	aws s3 cp s3://$(AWS_BUCKET)/$(targz_file) >./binary.tar.gz
 	mkdir contents/
 	tar xzf binary.tar.gz -C content/
-	cd content && \
-	mv hugo*/hugo* ./hugo
 	ls -la content/
 
 download:
 	curl -L https://github.com/spf13/hugo/releases/download/v$(VERSION)/hugo_$(VERSION)_linux_arm.tar.gz > ./binary.tar.gz
 	mkdir content/
 	tar xzf binary.tar.gz -C content/
+	cd content && \
+	mv hugo*/hugo* ./hugo
 	ls -la content/
 
 dockerbuild:
