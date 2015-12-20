@@ -3,9 +3,9 @@
 build:
   image: armdrone/drone-plugin-base
   commands:
-    - apk update && apk add unzip curl
+    - apk update && apk add tar gzip curl
     - export VERSION=0.14
-    - export URL=https://github.com/spf13/hugo/releases/download/v$(VERSION)/hugo_$(VERSION)_linux_arm.tar.gz
+    - export URL=https://github.com/spf13/hugo/releases/download/v${VERSION}/hugo_${VERSION}_linux_arm.tar.gz
     - curl -L ${URL} > ./hugo.tar.gz
     - mkdir content/
     - tar xzf hugo.tar.gz -C content/
