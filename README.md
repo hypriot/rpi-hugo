@@ -46,7 +46,8 @@ Run all the commands from within the project root directory.
 
 ### Build the Docker Image
 ```bash
-make dockerbuild
+make download
+NAMESPACE=hypriot make dockerbuild
 ```
 
 #### Push the Docker Image to the Docker Hub

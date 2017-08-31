@@ -14,7 +14,7 @@ loadS3_and_extract:
 	ls -la content/
 
 download:
-	curl -L https://github.com/spf13/hugo/releases/download/v$(VERSION)/hugo_$(VERSION)_linux_arm.tar.gz > ./binary.tar.gz
+	curl -L https://github.com/gohugoio/hugo/releases/download/v$(VERSION)/hugo_$(VERSION)_Linux-ARM.tar.gz > ./binary.tar.gz
 	mkdir content/
 	tar xzf binary.tar.gz -C content/
 	cd content && \
@@ -22,10 +22,10 @@ download:
 	ls -la content/
 
 dockerbuild:
-	docker rmi -f $(NAMESPACE)/$(IMAGENAME):bak || true
-	docker tag $(NAMESPACE)/$(IMAGENAME) $(NAMESPACE)/$(IMAGENAME):bak || true
-	docker rmi -f $(NAMESPACE)/$(IMAGENAME) || true
-	docker build -t $(NAMESPACE)/$(IMAGENAME) .
+	docker rmi -f $(NAMESPACE)/$(IMAGENAME):$(VERSION)_bak || true
+	docker tag $(NAMESPACE)/$(IMAGENAME) $(NAMESPACE)/$(IMAGENAME):$(VERSION)_bak || true
+	docker rmi -f $(NAMESPACE)/$(IMAGENAME):$(VERSION) || true
+	docker build -t $(NAMESPACE)/$(IMAGENAME):$(VERSION) .
 
 testimg:
 	docker rm -f new-$(IMAGENAME) || true
